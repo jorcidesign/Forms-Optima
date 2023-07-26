@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button, Container, TextField } from "@mui/material";
+// import { browserHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -13,13 +15,16 @@ const LoginForm = () => {
     setPassword(event.target.value);
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // lógica para validar desde el servidor
 
     // console.log('Correo electrónico:', email);
     // console.log('Contraseña:', password);
-    window.location.href = "/custom-consultation";
+    navigate('/custom-consultation');
+    
   };
 
   return (
